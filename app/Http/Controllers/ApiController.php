@@ -13,6 +13,7 @@ class ApiController extends Controller
     }
 
       public function createStudent(Request $request) {
+
         $student = new Student;
         $student->name = $request->name;
         $student->course = $request->course;
@@ -24,6 +25,7 @@ class ApiController extends Controller
       }
 
       public function getStudent($id) {
+
         if (Student::where('id', $id)->exists()) {
             $student = Student::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
             return response($student, 200);
@@ -35,6 +37,7 @@ class ApiController extends Controller
       }
 
       public function updateStudent(Request $request, $id) {
+
         if (Student::where('id', $id)->exists()) {
             $student = Student::find($id);
             $student->name = is_null($request->name) ? $student->name : $request->name;
@@ -53,6 +56,7 @@ class ApiController extends Controller
     }
 
     public function deleteStudent ($id) {
+
         if(Student::where('id', $id)->exists()) {
           $student = Student::find($id);
           $student->delete();
