@@ -17,4 +17,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/API-PROJECT/events/createStudents', function () {return view('events.createStudents');});
