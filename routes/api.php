@@ -14,15 +14,18 @@ use App\Http\Controllers\ApiController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+//Teste dessa forma no browser http://localhost:8000/api/students
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('students', [ApiController::class, 'getAllStudents']);
+Route::get('students-get', [ApiController::class, 'getAllStudents']);
 Route::get('students/{id}', [ApiController::class,'getStudent']);
-Route::post('students', [ApiController::class, 'createStudent']);
-Route::put('students/{id}', [ApiController::class,'updateStudent']);
-Route::delete('students/{id}',[ApiController::class,'deleteStudent']);
+Route::post('students-created', [ApiController::class, 'createStudent']);
+Route::put('students-update/{id}', [ApiController::class,'updateStudent']);
+Route::delete('students-delete/{id}',[ApiController::class,'deleteStudent']);
 
 
