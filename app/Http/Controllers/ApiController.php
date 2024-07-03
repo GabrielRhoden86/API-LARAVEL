@@ -18,7 +18,7 @@ class ApiController extends Controller
         $student->course = $request->course;
         $student->save();
         return response()->json([
-            "message" => "student record created"
+            "message" => "Estudante registrado com sucesso!"
         ], 201);
       }
 
