@@ -17,7 +17,7 @@ use App\Http\Controllers\ApiController;
 //Teste dessa forma no browser http://localhost:8000/api/students
 
 
-
+//Nesse caso o usuário só pode acessar a pag '/user' se tiver o token(auth:sanctum) gravado em seu navegador
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
