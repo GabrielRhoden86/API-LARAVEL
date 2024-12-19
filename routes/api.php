@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
-
+use App\Http\Controllers\ControllerLogin;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,11 +16,12 @@ use App\Http\Controllers\ApiController;
 */
 //Teste dessa forma no browser http://localhost:8000/api/students
 
-
 //Nesse caso o usuário só pode acessar a pag '/user' se tiver o token(auth:sanctum) gravado em seu navegador
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/login', [ControllerLogin::class, 'login']);
 
 Route::get('students-get', [ApiController::class, 'getAllStudents']);
 Route::get('students/{id}', [ApiController::class,'getStudent']);
